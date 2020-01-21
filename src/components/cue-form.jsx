@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Formik, Field, Form } from "formik";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, Checkbox } from "@material-ui/core";
 
 class CueForm extends Component {
     render() {
         return (
             <Formik
-                initialValues={{ licence: "", balance: "" }}
+                initialValues={{ licence: "", balance: "", hasLicense: false }}
                 onSubmit={(data, { setSubmitting }) => {
                     setSubmitting(true);
                     console.log("Submit: ", data);
@@ -15,17 +15,12 @@ class CueForm extends Component {
             >
                 {({ values, isSubmitting }) => (
                     <Form>
+                        <Field name="licence" type="input" as={TextField} />
+                        <Field name="balance" type="input" as={TextField} />
                         <Field
-                            placeholder="Licence"
-                            name="licence"
-                            type="input"
-                            as={TextField}
-                        />
-                        <Field
-                            placeholder="Balance"
-                            name="balance"
-                            type="input"
-                            as={TextField}
+                            name="hasLicense"
+                            type="checkbox"
+                            as={Checkbox}
                         />
                         <div>
                             <Button type="submit" disabled={isSubmitting}>
