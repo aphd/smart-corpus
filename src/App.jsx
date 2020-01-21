@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./App.css";
-import Form from "./components/form";
+import CueForm from "./components/cue-form";
 
 class App extends Component {
     render = () => {
@@ -12,7 +12,7 @@ class App extends Component {
                         <title>Smac-Corpus</title>
                     </Helmet>
                 </HelmetProvider>
-                <Form onFormSubmit={this.handleFormSubmit} />
+                <CueForm onFormSubmit={this.handleFormSubmit} />
             </main>
         );
     };

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Formik, Field } from "formik";
+import { Formik, Field, Form } from "formik";
 import { TextField, Button } from "@material-ui/core";
 
-class Form extends Component {
+class CueForm extends Component {
     render() {
         return (
             <Formik
@@ -13,14 +13,8 @@ class Form extends Component {
                     setSubmitting(false);
                 }}
             >
-                {({
-                    values,
-                    isSubmitting,
-                    handleChange,
-                    handleBlur,
-                    handleSubmit
-                }) => (
-                    <form onSubmit={handleSubmit}>
+                {({ values, isSubmitting }) => (
+                    <Form>
                         <Field
                             placeholder="Licence"
                             name="licence"
@@ -39,11 +33,11 @@ class Form extends Component {
                             </Button>
                         </div>
                         <pre>{JSON.stringify(values, null, 2)}</pre>
-                    </form>
+                    </Form>
                 )}
             </Formik>
         );
     }
 }
 
-export default Form;
+export default CueForm;
