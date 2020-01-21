@@ -1,29 +1,31 @@
 import React, { Component } from "react";
+import { Formik } from "formik";
+import { TextField, Button } from "@material-ui/core";
 
 class Form extends Component {
     render() {
         return (
-            <form>
-                <div className="form-group">
-                    <textarea
-                        className="form-control"
-                        id="sc_code"
-                        rows="10"
-                        defaultValue=""
-                    ></textarea>
-                </div>
-                <button
-                    type="button"
-                    className="btn btn-primary mb-2"
-                    onClick={() =>
-                        this.props.onFormSubmit(
-                            document.getElementById("sc_code").value
-                        )
-                    }
-                >
-                    Submit
-                </button>
-            </form>
+            <Formik
+                initialValues={{ firstName: "Bob" }}
+                onSubmit={data => {
+                    console.log("Submit: ", data);
+                }}
+            >
+                {({ values, handleChange, handleBlur, handleSubmit }) => (
+                    <form onSubmit={handleSubmit}>
+                        <TextField
+                            name="firstName"
+                            value={values.firstName}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                        />
+                        <div>
+                            <Button type="submit">submit</Button>
+                        </div>
+                        <pre>{JSON.stringify(values, null, 2)}</pre>
+                    </form>
+                )}
+            </Formik>
         );
     }
 }
