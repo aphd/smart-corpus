@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Formik } from "formik";
+import { Formik, Field } from "formik";
 import { TextField, Button } from "@material-ui/core";
 
 class Form extends Component {
     render() {
         return (
             <Formik
-                initialValues={{ firstName: "Bob" }}
+                initialValues={{ licence: "MIT", balance: "0" }}
                 onSubmit={(data, { setSubmitting }) => {
                     setSubmitting(true);
                     console.log("Submit: ", data);
@@ -21,12 +21,8 @@ class Form extends Component {
                     handleSubmit
                 }) => (
                     <form onSubmit={handleSubmit}>
-                        <TextField
-                            name="firstName"
-                            value={values.firstName}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                        />
+                        <Field name="licence" type="input" as={TextField} />
+                        <Field name="balance" type="input" as={TextField} />
                         <div>
                             <Button type="submit" disabled={isSubmitting}>
                                 submit
