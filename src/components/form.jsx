@@ -6,7 +6,7 @@ class Form extends Component {
     render() {
         return (
             <Formik
-                initialValues={{ licence: "MIT", balance: "0" }}
+                initialValues={{ licence: "", balance: "" }}
                 onSubmit={(data, { setSubmitting }) => {
                     setSubmitting(true);
                     console.log("Submit: ", data);
@@ -21,8 +21,18 @@ class Form extends Component {
                     handleSubmit
                 }) => (
                     <form onSubmit={handleSubmit}>
-                        <Field name="licence" type="input" as={TextField} />
-                        <Field name="balance" type="input" as={TextField} />
+                        <Field
+                            placeholder="Licence"
+                            name="licence"
+                            type="input"
+                            as={TextField}
+                        />
+                        <Field
+                            placeholder="Balance"
+                            name="balance"
+                            type="input"
+                            as={TextField}
+                        />
                         <div>
                             <Button type="submit" disabled={isSubmitting}>
                                 submit
