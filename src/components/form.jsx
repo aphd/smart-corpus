@@ -7,11 +7,19 @@ class Form extends Component {
         return (
             <Formik
                 initialValues={{ firstName: "Bob" }}
-                onSubmit={data => {
+                onSubmit={(data, { setSubmitting }) => {
+                    setSubmitting(true);
                     console.log("Submit: ", data);
+                    setSubmitting(false);
                 }}
             >
-                {({ values, handleChange, handleBlur, handleSubmit }) => (
+                {({
+                    values,
+                    isSubmitting,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit
+                }) => (
                     <form onSubmit={handleSubmit}>
                         <TextField
                             name="firstName"
@@ -20,7 +28,9 @@ class Form extends Component {
                             onBlur={handleBlur}
                         />
                         <div>
-                            <Button type="submit">submit</Button>
+                            <Button type="submit" disabled={isSubmitting}>
+                                submit
+                            </Button>
                         </div>
                         <pre>{JSON.stringify(values, null, 2)}</pre>
                     </form>
