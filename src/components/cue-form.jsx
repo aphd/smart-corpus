@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import { Formik, Field, Form } from "formik";
 import { TextField, Button, Checkbox } from "@material-ui/core";
-import * as Yup from "yup";
-
-const validationSchema = Yup.object().shape({
-    licence: Yup.string()
-        .min(3, "Must have at least 3 values")
-        .required("Must enter a value")
-});
+import cueFormValidation from "./cue-form-validation";
 
 class CueForm extends Component {
     render() {
@@ -19,7 +13,7 @@ class CueForm extends Component {
                     console.log("Submit: ", data);
                     setSubmitting(false);
                 }}
-                validationSchema={validationSchema}
+                validationSchema={cueFormValidation}
             >
                 {({ values, errors, isSubmitting }) => (
                     <Form>
