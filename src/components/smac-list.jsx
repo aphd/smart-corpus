@@ -7,7 +7,7 @@ class SmacList extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:9090/smacs", {
+        fetch("http://aind.ga/smacs", {
             headers: { "content-type": "application/json" }
         })
             .then(res => res.json())
