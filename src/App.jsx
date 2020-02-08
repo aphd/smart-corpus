@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./App.css";
 import CueForm from "./components/cue-form";
+import SmacList from "./components/smac-list";
 
 class App extends Component {
     render = () => {
@@ -13,6 +14,7 @@ class App extends Component {
                     </Helmet>
                 </HelmetProvider>
                 <CueForm onFormSubmit={this.handleFormSubmit} />
+                <SmacList />
             </main>
         );
     };
