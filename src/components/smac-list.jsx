@@ -7,7 +7,7 @@ class SmacList extends Component {
     }
 
     componentDidMount() {
-        fetch("http://aind.ga/smacs", {
+        fetch("https://smac.ga/adr", {
             headers: { "content-type": "application/json" }
         })
             .then(res => res.json())
@@ -24,20 +24,22 @@ class SmacList extends Component {
             <div>
                 <table>
                     <thead>
-                        <th>Name</th>
-                        <th>Address</th>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {this.state.smacs.map(smac => {
                             return (
-                                <tr key={smac.smacId}>
+                                <tr key={smac._id}>
                                     <td>{smac.name}</td>
                                     <td>
                                         <a
                                             target="_"
-                                            href={`https://etherscan.io/address/${smac.hash}#code`}
+                                            href={`https://etherscan.io/address/${smac.address}#code`}
                                         >
-                                            {smac.hash}
+                                            {smac.address}
                                         </a>
                                     </td>
                                 </tr>
