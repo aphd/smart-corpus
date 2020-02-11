@@ -7,7 +7,7 @@ import SmacList from "./components/smac-list";
 class App extends Component {
     render = () => {
         return (
-            <main className="container">
+            <main className="container-fluid">
                 <HelmetProvider>
                     <Helmet>
                         <title>Smac-Corpus</title>

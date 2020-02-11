@@ -20,6 +20,7 @@ class SmacList extends Component {
     }
 
     render() {
+        const format_date = date => date.substr(0, 16).replace("T", " ");
         return (
             <div>
                 <table className="table table-hover table-sm table-bordered">
@@ -31,8 +32,8 @@ class SmacList extends Component {
                             <th>Type</th>
                             <th>SLOC</th>
                             <th>NF</th>
-                            <th>FS</th>
-                            <th>LS</th>
+                            <th>First_seen</th>
+                            <th>Last_seen</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,8 +52,8 @@ class SmacList extends Component {
                                     <td>{smac.Type}</td>
                                     <td>{smac.SLOC}</td>
                                     <td>{smac.NF}</td>
-                                    <td>{smac.FS}</td>
-                                    <td>{smac.LS}</td>
+                                    <td>{format_date(smac.FS)}</td>
+                                    <td>{format_date(smac.LS)}</td>
                                 </tr>
                             );
                         })}
