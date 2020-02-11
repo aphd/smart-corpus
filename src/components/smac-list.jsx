@@ -7,7 +7,7 @@ class SmacList extends Component {
     }
 
     componentDidMount() {
-        fetch("https://smac.ga/adr", {
+        fetch("http://localhost:8080/adr", {
             headers: { "content-type": "application/json" }
         })
             .then(res => res.json())
@@ -23,17 +23,22 @@ class SmacList extends Component {
         return (
             <div>
                 <table>
+                    {/* TODO based on the json it should be automatic */}
                     <thead>
                         <tr>
-                            <th>Name</th>
                             <th>Address</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>SLOC</th>
+                            <th>NF</th>
+                            <th>FS</th>
+                            <th>LS</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.smacs.map(smac => {
                             return (
                                 <tr key={smac._id}>
-                                    <td>{smac.name}</td>
                                     <td>
                                         <a
                                             target="_"
@@ -42,6 +47,12 @@ class SmacList extends Component {
                                             {smac.address}
                                         </a>
                                     </td>
+                                    <td>{smac.ContractName}</td>
+                                    <td>{smac.Type}</td>
+                                    <td>{smac.SLOC}</td>
+                                    <td>{smac.NF}</td>
+                                    <td>{smac.FS}</td>
+                                    <td>{smac.LS}</td>
                                 </tr>
                             );
                         })}
