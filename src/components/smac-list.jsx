@@ -22,7 +22,7 @@ class SmacList extends Component {
     render() {
         return (
             <div>
-                <table>
+                <table className="table table-hover table-sm table-bordered">
                     {/* TODO based on the json it should be automatic */}
                     <thead>
                         <tr>
