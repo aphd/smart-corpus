@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Formik, Field, Form } from "formik";
-import { TextField, Button, Checkbox } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import cueFormValidation from "./cue-form-validation";
 
 class CueForm extends Component {
     render() {
         return (
             <Formik
-                initialValues={{ licence: "", balance: "", hasLicense: false }}
+                initialValues={{ Type: "library", CV: "0.4.25" }}
                 onSubmit={(data, { setSubmitting }) => {
                     setSubmitting(true);
                     this.props.onSubmit(data);
@@ -17,13 +17,8 @@ class CueForm extends Component {
             >
                 {({ values, errors, isSubmitting }) => (
                     <Form>
-                        <Field name="licence" type="input" as={TextField} />
-                        <Field name="balance" type="input" as={TextField} />
-                        <Field
-                            name="hasLicense"
-                            type="checkbox"
-                            as={Checkbox}
-                        />
+                        <Field name="Type" type="input" as={TextField} />
+                        <Field name="CV" type="input" as={TextField} />
                         <div>
                             <Button type="submit" disabled={isSubmitting}>
                                 submit
