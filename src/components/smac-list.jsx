@@ -10,7 +10,6 @@ class SmacList extends Component {
         return (
             <div>
                 <table className="table table-hover table-sm table-bordered">
-                    {/* TODO based on the json it should be automatic */}
                     <thead>
                         <tr>
                             <th>Address</th>

@@ -7,7 +7,7 @@ class CueForm extends Component {
     render() {
         return (
             <Formik
-                initialValues={{ licence: "", balance: "", hasLicense: false }}
+                initialValues={{ Type: "library", hasLicense: false }}
                 onSubmit={(data, { setSubmitting }) => {
                     setSubmitting(true);
                     this.props.onSubmit(data);
@@ -17,8 +17,7 @@ class CueForm extends Component {
             >
                 {({ values, errors, isSubmitting }) => (
                     <Form>
-                        <Field name="licence" type="input" as={TextField} />
-                        <Field name="balance" type="input" as={TextField} />
+                        <Field name="Type" type="input" as={TextField} />
                         <Field
                             name="hasLicense"
                             type="checkbox"
