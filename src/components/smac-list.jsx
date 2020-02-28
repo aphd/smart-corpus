@@ -3,20 +3,6 @@ import React, { Component } from "react";
 class SmacList extends Component {
     constructor(props) {
         super();
-        this.state = { smacs: [] };
-    }
-
-    componentDidMount() {
-        fetch("https://smac.ga/", {
-            headers: { "content-type": "application/json" }
-        })
-            .then(res => res.json())
-            .then(data => {
-                this.setState({ smacs: data });
-            })
-            .catch(err => {
-                console.log("catch:\n", err);
-            });
     }
 
     render() {
@@ -37,7 +23,7 @@ class SmacList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.smacs.map(smac => {
+                        {this.props.smacs.map(smac => {
                             return (
                                 <tr key={smac._id}>
                                     <td>

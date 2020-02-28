@@ -5,8 +5,25 @@ import CueForm from "./components/cue-form";
 import SmacList from "./components/smac-list";
 
 class App extends Component {
+    constructor(props) {
+        super();
+        this.state = {
+            smacs: []
+        };
+    }
     handleSubmit = par => {
         console.log("handleSubmit", par);
+
+        fetch("https://smac.ga/", {
+            headers: { "content-type": "application/json" }
+        })
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ smacs: data });
+            })
+            .catch(err => {
+                console.log("catch:\n", err);
+            });
     };
 
     render = () => {
@@ -18,7 +35,7 @@ class App extends Component {
                     </Helmet>
                 </HelmetProvider>
                 <CueForm onSubmit={this.handleSubmit} />
-                <SmacList />
+                <SmacList smacs={this.state.smacs} />
             </main>
         );
     };
