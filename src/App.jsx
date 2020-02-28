@@ -12,9 +12,7 @@ class App extends Component {
         };
     }
     handleSubmit = par => {
-        console.log("handleSubmit", par);
-
-        fetch("https://smac.ga/", {
+        fetch("http://smac.ga/object/" + JSON.stringify(par), {
             headers: { "content-type": "application/json" }
         })
             .then(res => res.json())

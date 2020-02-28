@@ -13,6 +13,7 @@ class SmacList extends Component {
                     <thead>
                         <tr>
                             <th>Address</th>
+                            <th>pragma</th>
                             <th>Name</th>
                             <th>Type</th>
                             <th>SLOC</th>
@@ -33,6 +34,7 @@ class SmacList extends Component {
                                             {smac.address}
                                         </a>
                                     </td>
+                                    <td>{smac.CV}</td>
                                     <td>{smac.ContractName}</td>
                                     <td>{smac.Type}</td>
                                     <td>{smac.SLOC}</td>

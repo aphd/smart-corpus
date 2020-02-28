@@ -7,7 +7,7 @@ class CueForm extends Component {
     render() {
         return (
             <Formik
-                initialValues={{ Type: "library" }}
+                initialValues={{ Type: "library", CV: "0.4.25" }}
                 onSubmit={(data, { setSubmitting }) => {
                     setSubmitting(true);
                     this.props.onSubmit(data);
@@ -18,6 +18,7 @@ class CueForm extends Component {
                 {({ values, errors, isSubmitting }) => (
                     <Form>
                         <Field name="Type" type="input" as={TextField} />
+                        <Field name="CV" type="input" as={TextField} />
                         <div>
                             <Button type="submit" disabled={isSubmitting}>
                                 submit
