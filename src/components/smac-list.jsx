@@ -7,7 +7,7 @@ class SmacList extends Component {
     }
 
     componentDidMount() {
-        fetch("https://smac.ga/adr", {
+        fetch("https://smac.ga/", {
             headers: { "content-type": "application/json" }
         })
             .then(res => res.json())

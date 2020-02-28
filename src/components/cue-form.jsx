@@ -10,7 +10,7 @@ class CueForm extends Component {
                 initialValues={{ licence: "", balance: "", hasLicense: false }}
                 onSubmit={(data, { setSubmitting }) => {
                     setSubmitting(true);
-                    console.log("Submit: ", data);
+                    this.props.onSubmit(data);
                     setSubmitting(false);
                 }}
                 validationSchema={cueFormValidation}

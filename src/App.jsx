@@ -5,6 +5,10 @@ import CueForm from "./components/cue-form";
 import SmacList from "./components/smac-list";
 
 class App extends Component {
+    handleSubmit = par => {
+        console.log("handleSubmit", par);
+    };
+
     render = () => {
         return (
             <main className="container-fluid">
@@ -13,7 +17,7 @@ class App extends Component {
                         <title>Smac-Corpus</title>
                     </Helmet>
                 </HelmetProvider>
-                <CueForm onFormSubmit={this.handleFormSubmit} />
+                <CueForm onSubmit={this.handleSubmit} />
                 <SmacList />
             </main>
         );
