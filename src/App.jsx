@@ -12,16 +12,11 @@ class App extends Component {
         };
     }
     handleSubmit = par => {
-        fetch("https://smac.ga/object/" + JSON.stringify(par), {
-            headers: { "content-type": "application/json" }
-        })
+        if (par.Type === "*") delete par.Type;
+        fetch("https://smac.ga/object/" + JSON.stringify(par))
             .then(res => res.json())
-            .then(data => {
-                this.setState({ smacs: data });
-            })
-            .catch(err => {
-                console.log("catch:\n", err);
-            });
+            .then(data => this.setState({ smacs: data }))
+            .catch(err => console.log("catch:\n", err));
     };
 
     render = () => {

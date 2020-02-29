@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Formik, Field, Form } from "formik";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, NativeSelect } from "@material-ui/core";
 import cueFormValidation from "./cue-form-validation";
 
 class CueForm extends Component {
@@ -17,7 +17,12 @@ class CueForm extends Component {
             >
                 {({ values, errors, isSubmitting }) => (
                     <Form>
-                        <Field name="Type" type="input" as={TextField} />
+                        <Field name="Type" as={NativeSelect}>
+                            <option value="*">All</option>
+                            <option value="interface">Interface</option>
+                            <option value="contract">Contract</option>
+                            <option value="library">Library</option>
+                        </Field>
                         <Field name="CV" type="input" as={TextField} />
                         <div>
                             <Button type="submit" disabled={isSubmitting}>
