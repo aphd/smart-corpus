@@ -2,6 +2,8 @@ body {
     margin: 20px;
 }
 
-form div {
-    margin: 0 20px;
+.label {
+    font-size: 10pt;
+    font-weight: bold;
+    font-style: italic;
 }

@@ -1,11 +1,7 @@
 import * as Yup from "yup";
 
 const cueFormValidation = Yup.object().shape({
-    Type: Yup.string().when("*", {
-        is: true,
-        then: () => {},
-        otherwise: () => {}
-    })
+    CV: Yup.string().required("Must enter a value")
 });
 
 export default cueFormValidation;
