@@ -17,20 +17,20 @@ class CueForm extends Component {
             >
                 {({ values, errors, isSubmitting }) => (
                     <Form>
-                        <Field name="Type" as={NativeSelect}>
-                            <option value="*">All</option>
-                            <option value="interface">Interface</option>
-                            <option value="contract">Contract</option>
-                            <option value="library">Library</option>
-                        </Field>
-                        <Field name="CV" type="input" as={TextField} />
-                        <div>
+                        <div class="form-group">
+                            <Field name="Type" as={NativeSelect}>
+                                <option value="*">All</option>
+                                <option value="interface">Interface</option>
+                                <option value="contract">Contract</option>
+                                <option value="library">Library</option>
+                            </Field>
+                            <Field name="CV" type="input" as={TextField} />
                             <Button type="submit" disabled={isSubmitting}>
                                 submit
                             </Button>
                         </div>
-                        <pre>Errors: {JSON.stringify(errors, null, 2)}</pre>
-                        <pre>Values: {JSON.stringify(values, null, 2)}</pre>
+                        {/* <pre>Errors: {JSON.stringify(errors, null, 2)}</pre>
+                        <pre>Values: {JSON.stringify(values, null, 2)}</pre> */}
                     </Form>
                 )}
             </Formik>
