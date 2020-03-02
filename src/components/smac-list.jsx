@@ -10,7 +10,7 @@ export class SmacList extends Component {
         return (
             this.props.smacs && (
                 <div>
-                    <table className="table table-hover table-sm table-bordered">
+                    <table className="table table-hover table-sm table-bordered mt-5">
                         <thead>
                             <tr>
                                 <th>Address</th>
