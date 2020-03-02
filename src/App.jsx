@@ -1,39 +1,26 @@
 import React, { Component } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./App.css";
-import CueForm from "./components/cue-form";
-import SmacList from "./components/smac-list";
+import { CueForm } from "./components/cue-form";
+import { SmacList } from "./components/smac-list";
+import { handleSubmit } from "./services/handleSubmit";
 
 class App extends Component {
     constructor(props) {
         super();
-        this.state = {
-            smacs: []
-        };
+        this.handleSubmit = handleSubmit.bind(this);
     }
-    handleSubmit = par => {
-        fetch("https://smac.ga/object/" + JSON.stringify(par), {
-            headers: { "content-type": "application/json" }
-        })
-            .then(res => res.json())
-            .then(data => {
-                this.setState({ smacs: data });
-            })
-            .catch(err => {
-                console.log("catch:\n", err);
-            });
-    };
 
     render = () => {
         return (
-            <main className="container-fluid">
+            <main>
                 <HelmetProvider>
                     <Helmet>
                         <title>Smac-Corpus</title>
                     </Helmet>
                 </HelmetProvider>
                 <CueForm onSubmit={this.handleSubmit} />
-                <SmacList smacs={this.state.smacs} />
+                <SmacList smacs={this.state && this.state.smacs} />
             </main>
         );
     };
