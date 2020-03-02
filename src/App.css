@@ -1,9 +1,7 @@
 body {
     margin: 20px;
 }
-
-.label {
-    font-size: 10pt;
-    font-weight: bold;
-    font-style: italic;
+.MuiInputBase-root {
+    margin-right: 20px;
+    width: 200px;
 }

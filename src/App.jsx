@@ -3,6 +3,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./App.css";
 import CueForm from "./components/cue-form";
 import SmacList from "./components/smac-list";
+import { handleSubmit } from "./services/handleSubmit";
 
 class App extends Component {
     constructor(props) {
@@ -10,14 +11,8 @@ class App extends Component {
         this.state = {
             smacs: []
         };
+        this.handleSubmit = handleSubmit.bind(this);
     }
-    handleSubmit = par => {
-        if (par.Type === "*") delete par.Type;
-        fetch("https://smac.ga/object/" + JSON.stringify(par))
-            .then(res => res.json())
-            .then(data => this.setState({ smacs: data }))
-            .catch(err => console.log("catch:\n", err));
-    };
 
     render = () => {
         return (
