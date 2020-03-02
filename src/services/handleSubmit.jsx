@@ -1,26 +1,14 @@
-const formOptions = {
-    contract_types: {
-        Any: "Any",
-        Contract: "contract",
-        Interface: "interface",
-        Library: "library"
-    },
-    pragma_version: {
-        Any: "Any",
-        "0.4.25": "0.4.25",
-        "0.5.0": "0.5.0"
-    }
+export const formOptions = {
+    contract_types: ["Any", "contract", "interface", "library"],
+    pragma_versions: ["Any", "0.4.25", "0.5.0", "0.5.4"]
 };
 
-const handleSubmit = function(par) {
-    console.log(par);
-    if (par.Type === "Any") delete par.Type;
-    if (par.CV === "Any") delete par.CV;
-    console.log(par);
+export const handleSubmit = function(par) {
+    Object.keys(par).forEach(v => {
+        if (par[v] === "Any") delete par[v];
+    });
     fetch("https://smac.ga/object/" + JSON.stringify(par))
         .then(res => res.json())
         .then(data => this.setState({ smacs: data }))
         .catch(err => console.log("catch:\n", err));
 };
-
-export { formOptions, handleSubmit };

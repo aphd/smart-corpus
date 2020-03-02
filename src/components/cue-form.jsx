@@ -4,7 +4,7 @@ import { TextField, Button } from "@material-ui/core";
 import cueFormValidation from "./cue-form-validation";
 import { formOptions } from "../services/handleSubmit";
 
-class CueForm extends Component {
+export class CueForm extends Component {
     render() {
         console.log();
         return (
@@ -29,10 +29,8 @@ class CueForm extends Component {
                             }}
                         >
                             {Object.entries(formOptions.contract_types).map(
-                                value => (
-                                    <option key={value[1]} value={value[1]}>
-                                        {value[0]}
-                                    </option>
+                                v => (
+                                    <option key={v[1]}>{v[1]}</option>
                                 )
                             )}
                         </Field>
@@ -45,11 +43,9 @@ class CueForm extends Component {
                                 native: true
                             }}
                         >
-                            {Object.entries(formOptions.pragma_version).map(
-                                value => (
-                                    <option key={value[1]} value={value[1]}>
-                                        {value[0]}
-                                    </option>
+                            {Object.entries(formOptions.pragma_versions).map(
+                                v => (
+                                    <option key={v[1]}>{v[1]}</option>
                                 )
                             )}
                         </Field>
@@ -69,5 +65,3 @@ class CueForm extends Component {
         );
     }
 }
-
-export default CueForm;
