@@ -13,6 +13,7 @@ export class SmacList extends Component {
                     <table className="table table-hover table-sm table-bordered mt-5">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Address</th>
                                 <th>pragma</th>
                                 <th>Name</th>
@@ -24,9 +25,10 @@ export class SmacList extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.smacs.map(smac => {
+                            {this.props.smacs.map((smac, id) => {
                                 return (
                                     <tr key={smac._id}>
+                                        <td>{id + 1}</td>
                                         <td>
                                             <a
                                                 target="_"
