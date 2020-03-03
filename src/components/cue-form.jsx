@@ -64,6 +64,21 @@ export class CueForm extends Component {
                                 )
                             )}
                         </Field>
+                        <Field
+                            name="NF"
+                            as={TextField}
+                            select
+                            label="Number of functions"
+                            SelectProps={{
+                                native: true
+                            }}
+                        >
+                            {Object.entries(formOptions.greater_than).map(
+                                (k, v) => (
+                                    <option key={v}>{k[0]}</option>
+                                )
+                            )}
+                        </Field>
                         <Button
                             variant="contained"
                             color="primary"
