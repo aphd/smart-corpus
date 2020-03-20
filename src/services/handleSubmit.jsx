@@ -1,5 +1,4 @@
 export const formOptions = {
-    contract_types: ["Any", "contract", "interface", "library"],
     pragma_versions: ["Any", "0.4.25", "0.5.0", "0.5.2", "0.6.0"],
     greater_than: {
         Any: "Any",
