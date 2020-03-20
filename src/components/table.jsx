@@ -2,14 +2,18 @@ import React, { Component } from "react";
 
 const RenderRow = props => {
     return props.keys.map((key, index) => {
-        return <td key={index}>{props.data[key]}</td>;
+        let value = props.data[key];
+        if (props.data[key].length) {
+            value = `${value.slice(0, 10)}...`;
+        }
+        return <td key={index}>{value}</td>;
     });
 };
 
 export class Table extends Component {
     constructor(props) {
-        super();
-        this.NUM_ROWS = 10;
+        super(props);
+        this.NUM_ROWS = 20;
     }
 
     getKeys = function() {
