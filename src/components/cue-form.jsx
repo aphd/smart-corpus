@@ -20,22 +20,7 @@ export class CueForm extends Component {
                 {({ values, errors, isSubmitting }) => (
                     <Form>
                         <Field
-                            name="Type"
-                            as={TextField}
-                            select
-                            label="Contract type"
-                            SelectProps={{
-                                native: true
-                            }}
-                        >
-                            {Object.entries(formOptions.contract_types).map(
-                                v => (
-                                    <option key={v[1]}>{v[1]}</option>
-                                )
-                            )}
-                        </Field>
-                        <Field
-                            name="CV"
+                            name="vrsion"
                             as={TextField}
                             select
                             label="pragma version"
@@ -50,25 +35,10 @@ export class CueForm extends Component {
                             )}
                         </Field>
                         <Field
-                            name="SLOC"
+                            name="total_lines"
                             as={TextField}
                             select
                             label="Source lines of code"
-                            SelectProps={{
-                                native: true
-                            }}
-                        >
-                            {Object.entries(formOptions.greater_than).map(
-                                (k, v) => (
-                                    <option key={v}>{k[0]}</option>
-                                )
-                            )}
-                        </Field>
-                        <Field
-                            name="NF"
-                            as={TextField}
-                            select
-                            label="Number of functions"
                             SelectProps={{
                                 native: true
                             }}

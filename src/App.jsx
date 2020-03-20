@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./App.css";
 import { CueForm } from "./components/cue-form";
-import { SmacList } from "./components/smac-list";
+import { Table } from "./components/table";
 import { handleSubmit } from "./services/handleSubmit";
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
                     </Helmet>
                 </HelmetProvider>
                 <CueForm onSubmit={this.handleSubmit} />
-                <SmacList smacs={this.state && this.state.smacs} />
+                <Table data={this.state && this.state.data} />
             </main>
         );
     };
