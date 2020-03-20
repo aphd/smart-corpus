@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 const RenderRow = props => {
     return props.keys.map((key, index) => {
-        return <td key={props.data[key]}>{props.data[key]}</td>;
+        return <td key={index}>{props.data[key]}</td>;
     });
 };
 
@@ -49,7 +49,8 @@ export class Table extends Component {
 
     render() {
         return (
-            this.props.data && (
+            this.props.data &&
+            this.props.data.length && (
                 <table className="table table-hover table-sm table-bordered mt-5">
                     <thead>
                         <tr>{this.getHeader()}</tr>

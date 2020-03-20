@@ -19,7 +19,7 @@ export class CueForm extends Component {
             >
                 {({ values, errors, isSubmitting }) => (
                     <Form>
-                        <Field
+                        {/* <Field
                             name="Type"
                             as={TextField}
                             select
@@ -33,9 +33,9 @@ export class CueForm extends Component {
                                     <option key={v[1]}>{v[1]}</option>
                                 )
                             )}
-                        </Field>
+                        </Field> */}
                         <Field
-                            name="CV"
+                            name="vrsion"
                             as={TextField}
                             select
                             label="pragma version"
@@ -50,7 +50,7 @@ export class CueForm extends Component {
                             )}
                         </Field>
                         <Field
-                            name="SLOC"
+                            name="total_lines"
                             as={TextField}
                             select
                             label="Source lines of code"
@@ -64,7 +64,7 @@ export class CueForm extends Component {
                                 )
                             )}
                         </Field>
-                        <Field
+                        {/* <Field
                             name="NF"
                             as={TextField}
                             select
@@ -78,7 +78,7 @@ export class CueForm extends Component {
                                     <option key={v}>{k[0]}</option>
                                 )
                             )}
-                        </Field>
+                        </Field> */}
                         <Button
                             variant="contained"
                             color="primary"
