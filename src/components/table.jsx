@@ -50,7 +50,7 @@ export class Table extends Component {
     render() {
         return (
             this.props.data &&
-            this.props.data.length && (
+            this.props.data.length > 0 && (
                 <table className="table table-hover table-sm table-bordered mt-5">
                     <thead>
                         <tr>{this.getHeader()}</tr>
