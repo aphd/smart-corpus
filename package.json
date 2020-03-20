@@ -12,6 +12,7 @@
         "bootstrap": "^4.4.1",
         "formik": "^2.1.2",
         "helmet": "^3.21.2",
+        "html-react-parser": "^0.10.2",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
         "react-helmet-async": "^1.0.4",
