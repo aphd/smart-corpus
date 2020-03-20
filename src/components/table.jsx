@@ -9,9 +9,6 @@ const RenderRow = props => {
 export class Table extends Component {
     constructor(props) {
         super();
-        this.getHeader = this.getHeader.bind(this);
-        this.getRowsData = this.getRowsData.bind(this);
-        this.getKeys = this.getKeys.bind(this);
         this.NUM_ROWS = 10;
     }
 
@@ -25,8 +22,10 @@ export class Table extends Component {
 
     getHeader = function() {
         var keys = this.getKeys();
+
         return keys.map((key, index) => {
             key = key.replace("_", " ");
+
             return (
                 <th className="align-middle" key={index}>
                     {key.toLowerCase()}
