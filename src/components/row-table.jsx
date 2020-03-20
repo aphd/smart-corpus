@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import parse from "html-react-parser";
 
 export default class RowTable extends Component {
+    getURL = addr => `https://etherscan.io/address/${addr}#code`;
+
     render() {
-        return this.props.keys.map((key, index) => {
-            let value = this.props.data[key];
-            if (this.props.data[key].length > 10) {
-                value = parse(`<a href="#">${value.slice(0, 15)}...</a>`);
+        return this.props.keys.map((k, i) => {
+            let v = this.props.data[k];
+            if (v.length > 15) {
+                let text = `${v.slice(0, 15)}...`;
+                v = parse(`<a href="${this.getURL(v)} >${text}</a>`);
             }
-            return <td key={index}>{value}</td>;
+            return <td key={i}>{v}</td>;
         });
     }
 }
