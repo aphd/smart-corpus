@@ -7,17 +7,22 @@ export class Table extends Component {
         this.NUM_ROWS = 100;
     }
 
-    getKeys = function() {
-        let keys = Object.keys(this.props.data[0]).filter((v, i) => {
-            return v !== "_id";
-        });
-        let index = keys.indexOf("contractAddress");
+    moveToFirstPosition = function(keys, value) {
+        let index = keys.indexOf(value);
         if (index > -1) {
             keys.splice(index, 1);
             keys.unshift("contractAddress");
         }
-
         return keys;
+    };
+
+    removeElements = (keys, valuesToRemove) =>
+        keys.filter(i => valuesToRemove.indexOf(i) === -1);
+
+    getKeys = function() {
+        let keys = Object.keys(this.props.data[0]);
+        keys = this.removeElements(keys, ["_id", "AvgNUMPAR", "AvgNL", "FS"]);
+        return this.moveToFirstPosition(keys, "contractAddress");
     };
 
     getHeader = function() {
