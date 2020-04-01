@@ -4,15 +4,25 @@ import RowTable from "./row-table";
 export class Table extends Component {
     constructor(props) {
         super(props);
-        this.NUM_ROWS = 20;
+        this.NUM_ROWS = 100;
     }
 
-    getKeys = function() {
-        let keys = Object.keys(this.props.data[0]).filter((v, i) => {
-            return v !== "_id" && v !== "contractAddress";
-        });
+    moveToFirstPosition = function(keys, value) {
+        let index = keys.indexOf(value);
+        if (index > -1) {
+            keys.splice(index, 1);
+            keys.unshift("contractAddress");
+        }
+        return keys;
+    };
 
-        return ["contractAddress", ...keys];
+    removeElements = (keys, valuesToRemove) =>
+        keys.filter(i => valuesToRemove.indexOf(i) === -1);
+
+    getKeys = function() {
+        let keys = Object.keys(this.props.data[0]);
+        keys = this.removeElements(keys, ["_id", "AvgNUMPAR", "AvgNL", "FS"]);
+        return this.moveToFirstPosition(keys, "contractAddress");
     };
 
     getHeader = function() {
@@ -35,6 +45,7 @@ export class Table extends Component {
         return items.map((row, index) => {
             return (
                 <tr key={index}>
+                    <td>{index + 1}</td>
                     <RowTable key={index} data={row} keys={keys} />
                 </tr>
             );
@@ -47,7 +58,10 @@ export class Table extends Component {
             this.props.data.length > 0 && (
                 <table className="table table-hover table-sm table-bordered mt-5">
                     <thead>
-                        <tr>{this.getHeader()}</tr>
+                        <tr>
+                            <td>#</td>
+                            {this.getHeader()}
+                        </tr>
                     </thead>
                     <tbody>{this.getRowsData()}</tbody>
                 </table>
