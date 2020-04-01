@@ -13,6 +13,7 @@ export const handleSubmit = function(query) {
     // TODO to improve code readability/reusability
     // this.query["total_lines"] should be based on check type
     this.query = Object.assign({}, query);
+    // this.query = { functions: 27, vrsion: "0.4.12" };
     Object.keys(query).forEach(v => {
         if (this.query[v] === "Any") delete this.query[v];
     });
