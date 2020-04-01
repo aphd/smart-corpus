@@ -9,7 +9,7 @@ export default class RowTable extends Component {
             let v = this.props.data[k];
             if (v.length > 15) {
                 let text = `${v.slice(0, 15)}...`;
-                v = parse(`<a href="${this.getURL(v)} >${text}</a>`);
+                v = parse(`<a href="${this.getURL(v)}" >${text}</a>`);
             }
             return <td key={i}>{v}</td>;
         });
