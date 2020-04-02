@@ -17,8 +17,8 @@ export const RowTable = props => {
 
     const getURL = addr => `https://etherscan.io/address/${addr}#code`;
 
-    const getTDs = () => {
-        return props.metrics.map((k, i) => {
+    const getTDs = () =>
+        props.metrics.map((k, i) => {
             let v = props.data[k];
             if (v.length > 15) {
                 let text = `${v.slice(0, 15)}...`;
@@ -26,7 +26,6 @@ export const RowTable = props => {
             }
             return <td key={i}>{v}</td>;
         });
-    };
 
     return (
         <tr key={props.id}>

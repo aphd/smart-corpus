@@ -7,7 +7,6 @@ import { metrics } from "../utils/metrics";
 export class Table extends Component {
     constructor(props) {
         super(props);
-        this.NUM_ROWS = 100;
         this.METRICS = null;
     }
 

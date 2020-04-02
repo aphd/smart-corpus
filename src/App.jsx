@@ -15,15 +15,13 @@ class App extends Component {
     render = () => {
         return (
             <CartProvider>
-                <main>
-                    <HelmetProvider>
-                        <Helmet>
-                            <title>Smac-Corpus</title>
-                        </Helmet>
-                    </HelmetProvider>
-                    <CueForm onSubmit={this.handleSubmit} />
-                    <Table data={this.state && this.state.data} />
-                </main>
+                <HelmetProvider>
+                    <Helmet>
+                        <title>Smac-Corpus</title>
+                    </Helmet>
+                </HelmetProvider>
+                <CueForm onSubmit={this.handleSubmit} />
+                <Table data={this.state && this.state.data} />
             </CartProvider>
         );
     };
