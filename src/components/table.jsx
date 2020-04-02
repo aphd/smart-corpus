@@ -21,7 +21,7 @@ export class Table extends Component {
 
     getKeys = function() {
         let keys = Object.keys(this.props.data[0]);
-        keys = this.removeElements(keys, ["_id", "AvgNUMPAR", "AvgNL", "FS"]);
+        keys = this.removeElements(keys, ["_id", "AvgNL", "FS", "LS"]);
         return this.moveToFirstPosition(keys, "contractAddress");
     };
 
@@ -45,7 +45,9 @@ export class Table extends Component {
         return items.map((row, index) => {
             return (
                 <tr key={index}>
-                    <td>{index + 1}</td>
+                    <td className="text-right">
+                        {index + 1} <input type="checkbox" />
+                    </td>
                     <RowTable key={index} data={row} keys={keys} />
                 </tr>
             );
@@ -59,7 +61,7 @@ export class Table extends Component {
                 <table className="table table-hover table-sm table-bordered mt-5">
                     <thead>
                         <tr>
-                            <td>#</td>
+                            <td className="text-right">#</td>
                             {this.getHeader()}
                         </tr>
                     </thead>
