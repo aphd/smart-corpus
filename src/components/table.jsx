@@ -12,9 +12,9 @@ export class Table extends Component {
 
     getRowsData = function() {
         var items = this.props.data.slice(0, this.NUM_ROWS);
-        var keys = this.props.data.metrics;
-        return items.map((row, index) => {
-            return <RowTable index={index} data={row} keys={keys} />;
+        var metrics = this.props.data.metrics;
+        return items.map((row, i) => {
+            return <RowTable key={i} index={i} data={row} metrics={metrics} />;
         });
     };
 

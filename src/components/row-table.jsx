@@ -5,7 +5,7 @@ export default class RowTable extends Component {
     getURL = addr => `https://etherscan.io/address/${addr}#code`;
 
     getTDs = props => {
-        return props.keys.map((k, i) => {
+        return props.metrics.map((k, i) => {
             let v = this.props.data[k];
             if (v.length > 15) {
                 let text = `${v.slice(0, 15)}...`;
