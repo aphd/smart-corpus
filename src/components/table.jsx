@@ -1,67 +1,34 @@
 import React, { Component } from "react";
-import RowTable from "./row-table";
+import { RowTable } from "./row-table";
+import { Cart } from "./cart";
+import { HeaderTable } from "./header-table";
+import { metrics } from "../utils/metrics";
 
 export class Table extends Component {
     constructor(props) {
         super(props);
-        this.NUM_ROWS = 100;
+        this.METRICS = null;
     }
 
-    moveToFirstPosition = function(keys, value) {
-        let index = keys.indexOf(value);
-        if (index > -1) {
-            keys.splice(index, 1);
-            keys.unshift("contractAddress");
-        }
-        return keys;
-    };
-
-    removeElements = (keys, valuesToRemove) =>
-        keys.filter(i => valuesToRemove.indexOf(i) === -1);
-
-    getKeys = function() {
-        let keys = Object.keys(this.props.data[0]);
-        keys = this.removeElements(keys, ["_id", "AvgNUMPAR", "AvgNL", "FS"]);
-        return this.moveToFirstPosition(keys, "contractAddress");
-    };
-
-    getHeader = function() {
-        var keys = this.getKeys();
-
-        return keys.map((key, index) => {
-            key = key.replace("_", " ");
-
-            return (
-                <th className="align-middle" key={index}>
-                    {key.toLowerCase()}
-                </th>
-            );
-        });
-    };
-
     getRowsData = function() {
-        var items = this.props.data.slice(0, this.NUM_ROWS);
-        var keys = this.getKeys();
-        return items.map((row, index) => {
-            return (
-                <tr key={index}>
-                    <td>{index + 1}</td>
-                    <RowTable key={index} data={row} keys={keys} />
-                </tr>
-            );
+        return this.props.data.map((v, i) => {
+            return <RowTable key={i} id={i} data={v} metrics={this.METRICS} />;
         });
     };
 
     render() {
+        const shouldRendTheComponent =
+            this.props.data && this.props.data.length > 0;
+        if (shouldRendTheComponent) {
+            this.METRICS = metrics(this.props.data[0]);
+        }
+
         return (
-            this.props.data &&
-            this.props.data.length > 0 && (
+            shouldRendTheComponent && (
                 <table className="table table-hover table-sm table-bordered mt-5">
                     <thead>
-                        <tr>
-                            <td>#</td>
-                            {this.getHeader()}
-                        </tr>
+                        <Cart />
+                        <HeaderTable metrics={this.METRICS} />
                     </thead>
                     <tbody>{this.getRowsData()}</tbody>
                 </table>

@@ -4,6 +4,7 @@ import "./App.css";
 import { CueForm } from "./components/cue-form";
 import { Table } from "./components/table";
 import { handleSubmit } from "./services/handleSubmit";
+import { CartProvider } from "./components/cart-context";
 
 class App extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class App extends Component {
 
     render = () => {
         return (
-            <main>
+            <CartProvider>
                 <HelmetProvider>
                     <Helmet>
                         <title>Smac-Corpus</title>
@@ -21,7 +22,7 @@ class App extends Component {
                 </HelmetProvider>
                 <CueForm onSubmit={this.handleSubmit} />
                 <Table data={this.state && this.state.data} />
-            </main>
+            </CartProvider>
         );
     };
 }
