@@ -6,7 +6,7 @@ export default class RowTable extends Component {
 
     getTDs = props => {
         return props.metrics.map((k, i) => {
-            let v = this.props.data[k];
+            let v = props.data[k];
             if (v.length > 15) {
                 let text = `${v.slice(0, 15)}...`;
                 v = parse(`<a href="${this.getURL(v)}" >${text}</a>`);
@@ -16,9 +16,9 @@ export default class RowTable extends Component {
     };
 
     render = () => (
-        <tr key={this.props.index}>
+        <tr key={this.props.id}>
             <td className="text-right">
-                {this.props.index + 1} <input type="checkbox" />
+                {this.props.id + 1} <input type="checkbox" />
             </td>
             {this.getTDs(this.props)}
         </tr>

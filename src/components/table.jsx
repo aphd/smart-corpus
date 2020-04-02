@@ -8,13 +8,12 @@ export class Table extends Component {
     constructor(props) {
         super(props);
         this.NUM_ROWS = 100;
+        this.METRICS = null;
     }
 
     getRowsData = function() {
-        var items = this.props.data.slice(0, this.NUM_ROWS);
-        var metrics = this.props.data.metrics;
-        return items.map((row, i) => {
-            return <RowTable key={i} index={i} data={row} metrics={metrics} />;
+        return this.props.data.map((v, i) => {
+            return <RowTable key={i} id={i} data={v} metrics={this.METRICS} />;
         });
     };
 
@@ -22,7 +21,7 @@ export class Table extends Component {
         const shouldRendTheComponent =
             this.props.data && this.props.data.length > 0;
         if (shouldRendTheComponent) {
-            this.props.data.metrics = metrics(this.props.data[0]);
+            this.METRICS = metrics(this.props.data[0]);
         }
 
         return (
@@ -30,7 +29,7 @@ export class Table extends Component {
                 <table className="table table-hover table-sm table-bordered mt-5">
                     <thead>
                         <SelectContracts />
-                        <HeaderTable metrics={this.props.data.metrics} />
+                        <HeaderTable metrics={this.METRICS} />
                     </thead>
                     <tbody>{this.getRowsData()}</tbody>
                 </table>
