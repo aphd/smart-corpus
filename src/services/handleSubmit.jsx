@@ -14,7 +14,7 @@ export const handleSubmit = function(query) {
     // this.query["total_lines"] should be based on check type
     this.query = Object.assign({}, query);
     const server = "http://localhost:8080/" || "http://smac.ga/object/";
-    // this.query = { functions: 27, vrsion: "0.4.12" };
+    this.query = { functions: 27, vrsion: "0.4.12" };
     Object.keys(query).forEach(v => {
         if (this.query[v] === "Any") delete this.query[v];
     });

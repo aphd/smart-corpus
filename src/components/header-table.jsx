@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class HeaderTable extends Component {
-    getHeader = function(metrics) {
-        return metrics.map((metric, index) => {
+export const HeaderTable = props => {
+    const getHeader = function() {
+        return props.metrics.map((metric, index) => {
             metric = metric.replace("_", " ");
             return (
                 <th className="align-middle" key={index}>
@@ -12,10 +12,10 @@ export default class HeaderTable extends Component {
         });
     };
 
-    render = () => (
+    return (
         <tr>
             <td className="text-right">#</td>
-            {this.getHeader(this.props.metrics)}
+            {getHeader()}
         </tr>
     );
-}
+};

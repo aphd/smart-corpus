@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import RowTable from "./row-table";
+import { RowTable } from "./row-table";
 import SelectContracts from "./select-contracts";
-import HeaderTable from "./header-table";
+import { HeaderTable } from "./header-table";
 import { metrics } from "../utils/metrics";
 
 export class Table extends Component {
