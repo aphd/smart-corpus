@@ -5,9 +5,14 @@ import { CartContext } from "./cart-context";
 
 export const RowTable = props => {
     const [cart, setCart] = useContext(CartContext);
-    const addToCart = () => {
-        const contract = {};
-        setCart(curr => [...curr, contract]);
+    const [checked, setChecked] = React.useState(false);
+    const addToCart = e => {
+        setChecked(e.target.checked);
+
+        const contract = { id: props.id };
+        setCart(c =>
+            checked ? c.filter((v, i) => v.id !== props.id) : [...c, contract]
+        );
     };
 
     const getURL = addr => `https://etherscan.io/address/${addr}#code`;
@@ -28,6 +33,7 @@ export const RowTable = props => {
             <td className="text-right">
                 {props.id + 1}
                 <Checkbox
+                    checked={checked}
                     onChange={addToCart}
                     inputProps={{ "aria-label": "primary checkbox" }}
                 />

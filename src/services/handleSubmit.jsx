@@ -14,7 +14,7 @@ export const handleSubmit = function(query) {
     // this.query["total_lines"] should be based on check type
     this.query = Object.assign({}, query);
     const server = "http://localhost:8080/" || "http://smac.ga/object/";
-    this.query = { functions: 27, vrsion: "0.4.12" };
+    // this.query = { functions: 27, vrsion: "0.4.12" };
     Object.keys(query).forEach(v => {
         if (this.query[v] === "Any") delete this.query[v];
     });
@@ -22,6 +22,6 @@ export const handleSubmit = function(query) {
         formOptions.greater_than[this.query["total_lines"]];
     fetch(server + JSON.stringify(this.query))
         .then(res => res.json())
-        .then(data => this.setState({ data: data.slice(0, 3) }))
+        .then(data => this.setState({ data: data.slice(0, 10) }))
         .catch(err => console.log("catch:\n", err));
 };
