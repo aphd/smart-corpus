@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { RowTable } from "./row-table";
-import SelectContracts from "./select-contracts";
+import { Cart } from "./cart";
 import { HeaderTable } from "./header-table";
 import { metrics } from "../utils/metrics";
 
@@ -28,7 +28,7 @@ export class Table extends Component {
             shouldRendTheComponent && (
                 <table className="table table-hover table-sm table-bordered mt-5">
                     <thead>
-                        <SelectContracts />
+                        <Cart />
                         <HeaderTable metrics={this.METRICS} />
                     </thead>
                     <tbody>{this.getRowsData()}</tbody>

@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import parse from "html-react-parser";
+import Checkbox from "@material-ui/core/Checkbox";
+import { CartContext } from "./cart-context";
 
 export const RowTable = props => {
+    const [cart, setCart] = useContext(CartContext);
+    const addToCart = () => {
+        const contract = {};
+        setCart(curr => [...curr, contract]);
+    };
+
     const getURL = addr => `https://etherscan.io/address/${addr}#code`;
 
     const getTDs = () => {
@@ -18,7 +26,11 @@ export const RowTable = props => {
     return (
         <tr key={props.id}>
             <td className="text-right">
-                {props.id + 1} <input type="checkbox" />
+                {props.id + 1}
+                <Checkbox
+                    onChange={addToCart}
+                    inputProps={{ "aria-label": "primary checkbox" }}
+                />
             </td>
             {getTDs()}
         </tr>
