@@ -4,8 +4,8 @@ export const formOptions = {
         Any: "Any",
         "Greater than 1": { $gt: 1 },
         "Greater than 10": { $gt: 10 },
-        "Greater than 100": { $gt: 100 },
-        "Greater than 1000": { $gt: 1000 }
+        "Greater than 100": { $gt: 100 } //,
+        // "Greater than 1000": { $gt: 1000 }
     }
 };
 
@@ -26,6 +26,6 @@ export const handleSubmit = function(query) {
     console.log(JSON.stringify(this.query));
     fetch(server + JSON.stringify(this.query))
         .then(res => res.json())
-        .then(data => this.setState({ data: data.slice(0, 20) }))
+        .then(data => this.setState({ data: data }))
         .catch(err => console.log("catch:\n", err));
 };
