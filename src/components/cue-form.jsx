@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Formik, Field, Form } from "formik";
 import { TextField } from "@material-ui/core";
-import { formOptions } from "../services/handleSubmit";
+import { options } from "../services/handleSubmit";
 
 export class CueForm extends Component {
     state = {
-        loading: false
+        loading: false,
     };
     render() {
         return (
             <Formik
                 initialValues={{ Type: "Any", CV: "Any" }}
-                onSubmit={data => {
+                onSubmit={(data) => {
                     this.setState({ loading: true });
                     this.props
                         .onSubmit(data)
@@ -27,11 +27,11 @@ export class CueForm extends Component {
                             select
                             label="pragma version"
                             SelectProps={{
-                                native: true
+                                native: true,
                             }}
                         >
-                            {Object.entries(formOptions.pragma_versions).map(
-                                v => (
+                            {Object.entries(options.pragma_versions).map(
+                                (v) => (
                                     <option key={v[1]}>{v[1]}</option>
                                 )
                             )}
@@ -42,10 +42,10 @@ export class CueForm extends Component {
                             select
                             label="Source lines of code"
                             SelectProps={{
-                                native: true
+                                native: true,
                             }}
                         >
-                            {Object.entries(formOptions.greater_than).map(
+                            {Object.entries(options.greater_than).map(
                                 (k, v) => (
                                     <option key={v}>{k[0]}</option>
                                 )
@@ -57,10 +57,10 @@ export class CueForm extends Component {
                             select
                             label="Number of functions"
                             SelectProps={{
-                                native: true
+                                native: true,
                             }}
                         >
-                            {Object.entries(formOptions.greater_than).map(
+                            {Object.entries(options.greater_than).map(
                                 (k, v) => (
                                     <option key={v}>{k[0]}</option>
                                 )
@@ -72,10 +72,10 @@ export class CueForm extends Component {
                             select
                             label="Number of modifiers"
                             SelectProps={{
-                                native: true
+                                native: true,
                             }}
                         >
-                            {Object.entries(formOptions.greater_than).map(
+                            {Object.entries(options.greater_than).map(
                                 (k, v) => (
                                     <option key={v}>{k[0]}</option>
                                 )
@@ -87,10 +87,10 @@ export class CueForm extends Component {
                             select
                             label="Number of payable"
                             SelectProps={{
-                                native: true
+                                native: true,
                             }}
                         >
-                            {Object.entries(formOptions.greater_than).map(
+                            {Object.entries(options.greater_than).map(
                                 (k, v) => (
                                     <option key={v}>{k[0]}</option>
                                 )

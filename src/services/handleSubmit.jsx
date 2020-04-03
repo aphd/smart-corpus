@@ -1,10 +1,10 @@
-export const formOptions = {
-    pragma_versions: ["Any", "0.4.25", "0.5.0", "0.5.2", "0.6.0"],
+export const options = {
+    pragma_versions: ["Any", "0.4.*", "0.5.*", "0.6.*"],
     greater_than: {
-        Any: "Any",
-        "Greater than 1": { $gt: 1 },
-        "Greater than 10": { $gt: 10 },
-        "Greater than 100": { $gt: 100 }, //,
+        Any: 0,
+        "Greater than 1": 1,
+        "Greater than 10": 10,
+        "Greater than 100": 100, //,
         // "Greater than 1000": { $gt: 1000 }
     },
 };
@@ -14,23 +14,26 @@ export const handleSubmit = function (query) {
     // this.query["total_lines"] should be based on check type
     this.query = Object.assign({}, query);
     const server =
-        "https://raw.githubusercontent.com/aphd/smac-corpus/master/src/fixtures/contracts.json?" ||
-        "https://smac.ga/" ||
-        "http://localhost:8080/";
-    // this.query = { functions: 27, vrsion: "0.4.12" };
-    Object.keys(query).forEach((v) => {
-        if (this.query[v] === "Any") delete this.query[v];
-    });
-    this.query["total_lines"] =
-        formOptions.greater_than[this.query["total_lines"]];
-    this.query["functions"] = formOptions.greater_than[this.query["functions"]];
-    this.query["modifiers"] = formOptions.greater_than[this.query["modifiers"]];
-    this.query["payable"] = formOptions.greater_than[this.query["payable"]];
-    console.log(JSON.stringify(this.query));
-    return fetch(server + JSON.stringify(this.query))
+        "https://raw.githubusercontent.com/aphd/smac-corpus/master/src/fixtures/contracts.json?";
+    const total_lines = options.greater_than[query["total_lines"]] || 0;
+    const functions = options.greater_than[query["functions"]] || 0;
+    const modifiers = options.greater_than[query["modifiers"]] || 0;
+    const payable = options.greater_than[query["payable"]] || 0;
+    const version = query["vrsion"] || ".";
+    console.log(version);
+    return fetch(server)
         .then((res) => res.json())
         .then((data) => {
-            this.setState({ data: data });
+            this.setState({
+                data: data.filter(
+                    (v) =>
+                        v.total_lines > total_lines &&
+                        v.functions > functions &&
+                        v.modifiers > modifiers &&
+                        v.payable > payable &&
+                        v.vrsion.match(version)
+                ),
+            });
         })
         .catch((err) => console.log("catch:\n", err));
 };
