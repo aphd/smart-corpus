@@ -24,7 +24,6 @@ export const RowTable = props => {
             }
             return <td key={i}>{v}</td>;
         });
-
     return (
         <tr key={props.id}>
             <td className="text-right">
