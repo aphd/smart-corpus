@@ -22,6 +22,6 @@ export const handleSubmit = function(query) {
         formOptions.greater_than[this.query["total_lines"]];
     fetch(server + JSON.stringify(this.query))
         .then(res => res.json())
-        .then(data => this.setState({ data: data.slice(0, 10) }))
+        .then(data => this.setState({ data: data.slice(0, 20) }))
         .catch(err => console.log("catch:\n", err));
 };
