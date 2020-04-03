@@ -12,6 +12,6 @@ const removeElements = (keys, valuesToRemove) =>
 
 export const metrics = function(data) {
     let keys = Object.keys(data);
-    keys = removeElements(keys, ["_id", "blanks", "FS", "LS"]);
+    keys = removeElements(keys, ["_id", "blanks", "contracts_definition"]);
     return moveToFirstPosition(keys, "contractAddress");
 };

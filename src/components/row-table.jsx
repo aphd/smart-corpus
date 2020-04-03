@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import parse from "html-react-parser";
-import Checkbox from "@material-ui/core/Checkbox";
 import { CartContext } from "./cart-context";
 
 export const RowTable = props => {
@@ -8,7 +7,6 @@ export const RowTable = props => {
     const [checked, setChecked] = React.useState(false);
     const addToCart = e => {
         setChecked(e.target.checked);
-
         const contract = { id: props.id };
         setCart(c =>
             checked ? c.filter((v, i) => v.id !== props.id) : [...c, contract]
@@ -26,16 +24,15 @@ export const RowTable = props => {
             }
             return <td key={i}>{v}</td>;
         });
-
     return (
         <tr key={props.id}>
             <td className="text-right">
                 {/* {props.id + 1} */}
-                <Checkbox
+                <input
                     checked={checked}
+                    type="checkbox"
                     onChange={addToCart}
-                    inputProps={{ "aria-label": "primary checkbox" }}
-                />
+                ></input>
             </td>
             {getTDs()}
         </tr>

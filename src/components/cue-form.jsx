@@ -1,21 +1,22 @@
 import React, { Component } from "react";
 import { Formik, Field, Form } from "formik";
-import { TextField, Button } from "@material-ui/core";
-import cueFormValidation from "./cue-form-validation";
+import { TextField } from "@material-ui/core";
 import { formOptions } from "../services/handleSubmit";
 
 export class CueForm extends Component {
+    state = {
+        loading: false
+    };
     render() {
-        console.log();
         return (
             <Formik
                 initialValues={{ Type: "Any", CV: "Any" }}
-                onSubmit={(data, { setSubmitting }) => {
-                    setSubmitting(true);
-                    this.props.onSubmit(data);
-                    setSubmitting(false);
+                onSubmit={data => {
+                    this.setState({ loading: true });
+                    this.props
+                        .onSubmit(data)
+                        .finally(() => this.setState({ loading: false }));
                 }}
-                validationSchema={cueFormValidation}
             >
                 {({ values, errors, isSubmitting }) => (
                     <Form>
@@ -95,16 +96,18 @@ export class CueForm extends Component {
                                 )
                             )}
                         </Field>
-                        <Button
-                            variant="contained"
-                            color="primary"
+                        <button
                             type="submit"
-                            disabled={isSubmitting}
+                            className={`btn btn-primary`}
+                            disabled={this.state.loading}
                         >
-                            submit
-                        </Button>
-                        {/* <pre>Errors: {JSON.stringify(errors, null, 2)}</pre>
-                        <pre>Values: {JSON.stringify(values, null, 2)}</pre> */}
+                            <span
+                                className={`spinner-border spinner-border-sm ${
+                                    this.state.loading ? "mr-2" : "d-none"
+                                }`}
+                            ></span>
+                            Submit
+                        </button>
                     </Form>
                 )}
             </Formik>
