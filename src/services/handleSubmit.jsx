@@ -24,7 +24,7 @@ export const handleSubmit = function(query) {
     this.query["modifiers"] = formOptions.greater_than[this.query["modifiers"]];
     this.query["payable"] = formOptions.greater_than[this.query["payable"]];
     console.log(JSON.stringify(this.query));
-    fetch(server + JSON.stringify(this.query))
+    return fetch(server + JSON.stringify(this.query))
         .then(res => res.json())
         .then(data => this.setState({ data: data }))
         .catch(err => console.log("catch:\n", err));
