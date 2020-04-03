@@ -14,7 +14,7 @@ export const HeaderTable = props => {
 
     return (
         <tr>
-            <td className="text-right">#</td>
+            <td className="text-right">&nbsp;</td>
             {getHeader()}
         </tr>
     );

@@ -13,7 +13,7 @@ export const handleSubmit = function(query) {
     // TODO to improve code readability/reusability
     // this.query["total_lines"] should be based on check type
     this.query = Object.assign({}, query);
-    const server = "http://localhost:8080/" || "http://smac.ga/object/";
+    const server = "http://smac.ga/object/" || "http://localhost:8080/";
     // this.query = { functions: 27, vrsion: "0.4.12" };
     Object.keys(query).forEach(v => {
         if (this.query[v] === "Any") delete this.query[v];
