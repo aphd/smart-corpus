@@ -30,7 +30,7 @@ export const RowTable = props => {
     return (
         <tr key={props.id}>
             <td className="text-right">
-                {props.id + 1}
+                {/* {props.id + 1} */}
                 <Checkbox
                     checked={checked}
                     onChange={addToCart}
