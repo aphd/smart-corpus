@@ -22,7 +22,7 @@ export const RowTable = props => {
             let v = props.data[k];
             if (v.length > 15) {
                 let text = `${v.slice(0, 15)}...`;
-                v = parse(`<a href="${getURL(v)}" >${text}</a>`);
+                v = parse(`<a href="${getURL(v)}" target="_">${text}</a>`);
             }
             return <td key={i}>{v}</td>;
         });
