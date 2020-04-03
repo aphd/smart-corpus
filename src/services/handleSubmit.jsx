@@ -19,7 +19,7 @@ export const handleSubmit = function (query) {
     const functions = options.greater_than[query["functions"]] || 0;
     const modifiers = options.greater_than[query["modifiers"]] || 0;
     const payable = options.greater_than[query["payable"]] || 0;
-    const version = query["vrsion"] || ".";
+    const version = query["vrsion"] === "Any" ? "." : query["vrsion"] || ".";
     console.log(version);
     return fetch(server)
         .then((res) => res.json())
