@@ -19,6 +19,7 @@ export class CueForm extends Component {
             >
                 {({ values, errors, isSubmitting }) => (
                     <Form>
+                        {/* TODO add a factory method */}
                         <Field
                             name="vrsion"
                             as={TextField}
@@ -39,6 +40,51 @@ export class CueForm extends Component {
                             as={TextField}
                             select
                             label="Source lines of code"
+                            SelectProps={{
+                                native: true
+                            }}
+                        >
+                            {Object.entries(formOptions.greater_than).map(
+                                (k, v) => (
+                                    <option key={v}>{k[0]}</option>
+                                )
+                            )}
+                        </Field>
+                        <Field
+                            name="functions"
+                            as={TextField}
+                            select
+                            label="Number of functions"
+                            SelectProps={{
+                                native: true
+                            }}
+                        >
+                            {Object.entries(formOptions.greater_than).map(
+                                (k, v) => (
+                                    <option key={v}>{k[0]}</option>
+                                )
+                            )}
+                        </Field>
+                        <Field
+                            name="modifiers"
+                            as={TextField}
+                            select
+                            label="Number of modifiers"
+                            SelectProps={{
+                                native: true
+                            }}
+                        >
+                            {Object.entries(formOptions.greater_than).map(
+                                (k, v) => (
+                                    <option key={v}>{k[0]}</option>
+                                )
+                            )}
+                        </Field>
+                        <Field
+                            name="payable"
+                            as={TextField}
+                            select
+                            label="Number of payable"
                             SelectProps={{
                                 native: true
                             }}
