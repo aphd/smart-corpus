@@ -2,18 +2,18 @@ import React, { useContext } from "react";
 import parse from "html-react-parser";
 import { CartContext } from "./cart-context";
 
-export const RowTable = props => {
+export const RowTable = (props) => {
     const [cart, setCart] = useContext(CartContext);
     const [checked, setChecked] = React.useState(false);
-    const addToCart = e => {
+    const addToCart = (e) => {
         setChecked(e.target.checked);
-        const contract = { id: props.id };
-        setCart(c =>
+        const contract = { id: props.id, addr: props.data.contractAddress };
+        setCart((c) =>
             checked ? c.filter((v, i) => v.id !== props.id) : [...c, contract]
         );
     };
 
-    const getURL = addr => `https://etherscan.io/address/${addr}#code`;
+    const getURL = (addr) => `https://etherscan.io/address/${addr}#code`;
 
     const getTDs = () =>
         props.metrics.map((k, i) => {
