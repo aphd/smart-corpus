@@ -3,7 +3,7 @@ const domain =
 
 const downloadFile = (addr) => {
     const fn = `${addr}.json`;
-    let url = `${domain}/${addr.substr(0, 4)}/${fn}`;
+    const url = `${domain}/${addr.substr(0, 4)}/${fn}`;
 
     return fetch(url, {
         method: "GET",
@@ -14,7 +14,7 @@ const downloadFile = (addr) => {
         .then(function (json) {
             const sourceCode = json.result[0].SourceCode;
             const blob = new Blob([sourceCode], { type: "application/json" });
-            let a = document.createElement("a");
+            const a = document.createElement("a");
             a.href = window.URL.createObjectURL(blob);
             a.download = fn;
             document.body.appendChild(a);
