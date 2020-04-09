@@ -12,6 +12,7 @@ export const options = {
 export const handleMetrics = function (query) {
     // TODO to improve code readability/reusability
     // this.query["total_lines"] should be based on check type
+    // TODO you need to get the data from the mongodb.
     this.query = Object.assign({}, query);
     const server =
         "https://raw.githubusercontent.com/aphd/smac-corpus/master/src/fixtures/contracts.json?";
@@ -20,17 +21,16 @@ export const handleMetrics = function (query) {
     const modifiers = options.greater_than[query["modifiers"]] || 0;
     const payable = options.greater_than[query["payable"]] || 0;
     const version = query["vrsion"] === "Any" ? "." : query["vrsion"] || ".";
-    console.log(version);
     return fetch(server)
         .then((res) => res.json())
         .then((data) => {
             this.setState({
                 data: data.filter(
                     (v) =>
-                        v.total_lines > total_lines &&
-                        v.functions > functions &&
-                        v.modifiers > modifiers &&
-                        v.payable > payable &&
+                        v.total_lines >= total_lines &&
+                        v.functions >= functions &&
+                        v.modifiers >= modifiers &&
+                        v.payable >= payable &&
                         v.vrsion.match(version)
                 ),
             });
