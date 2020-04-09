@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "./cart-context";
 import { handleContractsDownload } from "../services/handle-contracs-download";
 
-export const Cart = () => {
+export const Cart = (props) => {
     const [cart] = useContext(CartContext);
     const hide = cart.length ? "" : "d-none";
     const no_hide = cart.length ? "d-none" : "";
@@ -13,7 +13,8 @@ export const Cart = () => {
         <tr>
             <td colSpan="100">
                 <button type="button" className={`btn btn-info ${no_hide}`}>
-                    Select the checkboxes to download the smart contracts
+                    Select the checkboxes to download the smart contracts -
+                    Total number of contracts: {props.total}
                 </button>
                 <button
                     onClick={onContractsDownload}
