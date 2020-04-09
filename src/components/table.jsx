@@ -8,9 +8,10 @@ export class Table extends Component {
     constructor(props) {
         super(props);
         this.METRICS = null;
+        this.total = 0;
     }
 
-    getRowsData = function() {
+    getRowsData = () => {
         return this.props.data.map((v, i) => {
             return <RowTable key={i} id={i} data={v} metrics={this.METRICS} />;
         });
@@ -21,13 +22,14 @@ export class Table extends Component {
             this.props.data && this.props.data.length > 0;
         if (shouldRendTheComponent) {
             this.METRICS = metrics(this.props.data[0]);
+            this.total = this.props.data.length;
         }
 
         return (
             shouldRendTheComponent && (
                 <table className="table table-hover table-sm table-bordered mt-5">
                     <thead>
-                        <Cart />
+                        <Cart total={this.total} />
                         <HeaderTable metrics={this.METRICS} />
                     </thead>
                     <tbody>{this.getRowsData()}</tbody>

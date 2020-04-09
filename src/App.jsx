@@ -3,13 +3,13 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./App.css";
 import { CueForm } from "./components/cue-form";
 import { Table } from "./components/table";
-import { handleSubmit } from "./services/handleSubmit";
+import { handleMetrics } from "./services/handle-metrics";
 import { CartProvider } from "./components/cart-context";
 
 class App extends Component {
     constructor(props) {
         super();
-        this.handleSubmit = handleSubmit.bind(this);
+        this.handleSubmit = handleMetrics.bind(this);
     }
 
     render = () => {
