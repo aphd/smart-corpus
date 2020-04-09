@@ -9,7 +9,7 @@ export const options = {
     },
 };
 
-export const handleSubmit = function (query) {
+export const handleMetrics = function (query) {
     // TODO to improve code readability/reusability
     // this.query["total_lines"] should be based on check type
     this.query = Object.assign({}, query);
