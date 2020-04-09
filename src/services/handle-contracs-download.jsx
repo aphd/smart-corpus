@@ -11,7 +11,7 @@ const handleClick = function (json) {
     const blob = new Blob([sourceCode], { type: "application/json" });
     const a = document.createElement("a");
     a.href = window.URL.createObjectURL(blob);
-    a.download = `${this.address}.json`;
+    a.download = `${this.address}.sol`;
     document.body.appendChild(a);
     a.click();
     a.remove();
