@@ -14,7 +14,8 @@ export const Cart = (props) => {
             <td colSpan="100">
                 <button type="button" className={`btn btn-info ${no_hide}`}>
                     Select the checkboxes to download the smart contracts -
-                    Total number of contracts: {props.total}
+                    Total number of contracts:{" "}
+                    <span class="badge badge-light">{props.total}</span>
                 </button>
                 <button
                     onClick={onContractsDownload}
