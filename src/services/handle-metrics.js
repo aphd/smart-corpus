@@ -14,8 +14,9 @@ export const handleMetrics = function (query) {
     // this.query["total_lines"] should be based on check type
     // TODO you need to get the data from the mongodb.
     this.query = Object.assign({}, query);
-    const metricsUrl =
+    let metricsUrl =
         "https://raw.githubusercontent.com/aphd/smac-corpus-api/master/data/metrics.json";
+    metricsUrl = "./metrics.json";
     const total_lines = options.greater_than[query["total_lines"]] || 0;
     const functions = options.greater_than[query["functions"]] || 0;
     const modifiers = options.greater_than[query["modifiers"]] || 0;
@@ -25,6 +26,7 @@ export const handleMetrics = function (query) {
     return fetch(metricsUrl)
         .then((res) => res.json())
         .then((data) => {
+            window.data = data;
             this.setState({
                 data: data.filter(
                     (v) =>
