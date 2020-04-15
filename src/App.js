@@ -10,6 +10,7 @@ class App extends Component {
     constructor(props) {
         super();
         this.handleSubmit = handleMetrics.bind(this);
+        this.state = { loading: false, data: [] };
     }
 
     render = () => {
@@ -20,8 +21,11 @@ class App extends Component {
                         <title>Smac-Corpus</title>
                     </Helmet>
                 </HelmetProvider>
-                <CueForm onSubmit={this.handleSubmit} />
-                <Table data={this.state && this.state.data} />
+                <CueForm
+                    onSubmit={this.handleSubmit}
+                    loading={this.state.loading}
+                />
+                <Table data={this.state.data} />
             </CartProvider>
         );
     };

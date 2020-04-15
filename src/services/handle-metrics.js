@@ -21,6 +21,7 @@ export const handleMetrics = function (query) {
     const modifiers = options.greater_than[query["modifiers"]] || 0;
     const payable = options.greater_than[query["payable"]] || 0;
     const version = query["vrsion"] === "Any" ? "." : query["vrsion"] || ".";
+    this.setState({ loading: true });
     return fetch(metricsUrl)
         .then((res) => res.json())
         .then((data) => {
@@ -33,6 +34,7 @@ export const handleMetrics = function (query) {
                         v.payable >= payable &&
                         v.vrsion.match(version)
                 ),
+                loading: false,
             });
         })
         .catch((err) => console.log("catch:\n", err));
