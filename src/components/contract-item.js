@@ -1,11 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import parse from "html-react-parser";
-import { CartContext } from "./cart-context";
 import { metrics } from "../fixtures/metrics";
 
 export const ContractItem = (props) => {
-    const setCart = useContext(CartContext)[1];
-
     const getURL = (addr) => `https://etherscan.io/address/${addr}#code`;
 
     const getTD = (k, i) => {
@@ -24,7 +21,7 @@ export const ContractItem = (props) => {
             <td className="text-right">
                 <input
                     type="checkbox"
-                    onClick={(e) => props.onClick(e, props.id, setCart)}
+                    onClick={(e) => props.onClick(e, props.id)}
                 ></input>
             </td>
             {getTDs()}

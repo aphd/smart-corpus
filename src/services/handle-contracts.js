@@ -1,19 +1,10 @@
-export const options = {
-    pragma_versions: ["Any", "0.4.*", "0.5.*", "0.6.*"],
-    greater_than: {
-        Any: 0,
-        "Greater than 1": 1,
-        "Greater than 10": 10,
-        "Greater than 100": 100, //,
-        // "Greater than 1000": { $gt: 1000 }
-    },
-};
-
-export const addToCart = function (event, address, setCart) {
+export const addToCart = function (event, address) {
     const checked = !event.target.checked;
-    setCart((addrs) =>
-        checked ? addrs.filter((v) => v !== address) : [...addrs, address]
-    );
+    const cart = this.state.cart;
+
+    this.setState({
+        cart: checked ? cart.filter((v) => v !== address) : [...cart, address],
+    });
 };
 
 export const handleContracts = function (query) {
@@ -47,4 +38,15 @@ export const handleContracts = function (query) {
             });
         })
         .catch((err) => console.log("catch:\n", err));
+};
+
+export const options = {
+    pragma_versions: ["Any", "0.4.*", "0.5.*", "0.6.*"],
+    greater_than: {
+        Any: 0,
+        "Greater than 1": 1,
+        "Greater than 10": 10,
+        "Greater than 100": 100, //,
+        // "Greater than 1000": { $gt: 1000 }
+    },
 };

@@ -1,14 +1,10 @@
-import React, { useContext } from "react";
-import { CartContext } from "./cart-context";
+import React from "react";
 import { handleContractsDownload } from "../services/handle-download";
 
 export const Cart = (props) => {
-    const [cart] = useContext(CartContext);
+    const cart = props.cart;
     const hide = cart.length ? "" : "d-none";
     const no_hide = cart.length ? "d-none" : "";
-    const onContractsDownload = () => {
-        handleContractsDownload(cart);
-    };
     return (
         props.total > 0 && (
             <div className="mt-3 mb-1">
@@ -18,7 +14,7 @@ export const Cart = (props) => {
                     <span className="badge badge-light">{props.total}</span>
                 </button>
                 <button
-                    onClick={onContractsDownload}
+                    onClick={() => handleContractsDownload(cart)}
                     type="button"
                     className={`btn btn-info ${hide}`}
                 >
