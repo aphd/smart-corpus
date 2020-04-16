@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { RowTable } from "./row-table";
+import { RowTable } from "./metric-item";
 import { Cart } from "./cart";
-import { HeaderTable } from "./header-table";
+import { HeaderTable } from "./metrics-header";
 
 export class Table extends Component {
     constructor(props) {

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./App.css";
-import { CueForm } from "./components/cue-form";
-import { Table } from "./components/table";
+import { CueForm } from "./components/contract-finder";
+import { Table } from "./components/metrics-container";
 import { handleMetrics } from "./services/handle-metrics";
 import { CartProvider } from "./components/cart-context";
 
