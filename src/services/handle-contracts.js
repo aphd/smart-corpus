@@ -14,7 +14,7 @@ export const handleContracts = function (query) {
     this.query = Object.assign({}, query);
     let metricsUrl =
         "https://raw.githubusercontent.com/aphd/smac-corpus-api/master/data/metrics.json";
-    metricsUrl = "./metrics.json";
+    // metricsUrl = "./metrics.json";
     const total_lines = options.greater_than[query["total_lines"]] || 0;
     const functions = options.greater_than[query["functions"]] || 0;
     const modifiers = options.greater_than[query["modifiers"]] || 0;
