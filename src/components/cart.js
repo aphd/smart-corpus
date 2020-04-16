@@ -10,8 +10,8 @@ export const Cart = (props) => {
         handleContractsDownload(cart);
     };
     return (
-        <tr>
-            <td colSpan="100">
+        props.total > 0 && (
+            <div className="mt-3 mb-1">
                 <button type="button" className={`btn btn-info ${no_hide}`}>
                     Select the checkboxes to download the smart contracts -
                     Total number of contracts:{" "}
@@ -26,7 +26,7 @@ export const Cart = (props) => {
                     <span className="badge badge-light">{cart.length}</span>{" "}
                     smart contracts
                 </button>
-            </td>
-        </tr>
+            </div>
+        )
     );
 };

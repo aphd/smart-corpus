@@ -5,30 +5,27 @@ import { ContractFinder } from "./components/contract-finder";
 import { ContractList } from "./components/contract-list";
 import { handleContracts } from "./services/handle-contracts";
 import { CartProvider } from "./components/cart-context";
+import { Cart } from "./components/cart";
 
-class App extends Component {
+export default class App extends Component {
     constructor(props) {
-        super();
-        this.handleSubmit = handleContracts.bind(this);
-        this.state = { loading: false, data: [] };
+        super(props);
+        this.handleContract = handleContracts.bind(this);
+        this.state = { loading: false, data: [], total: 0 };
     }
-
-    render = () => {
-        return (
-            <CartProvider>
-                <HelmetProvider>
-                    <Helmet>
-                        <title>Smac-Corpus</title>
-                    </Helmet>
-                </HelmetProvider>
-                <ContractFinder
-                    onSubmit={this.handleSubmit}
-                    loading={this.state.loading}
-                />
-                <ContractList data={this.state.data} />
-            </CartProvider>
-        );
-    };
+    render = () => (
+        <CartProvider>
+            <HelmetProvider>
+                <Helmet>
+                    <title>Smac-Corpus</title>
+                </Helmet>
+            </HelmetProvider>
+            <ContractFinder
+                onSubmit={this.handleContract}
+                loading={this.state.loading}
+            />
+            <Cart total={this.state.total} />
+            <ContractList data={this.state.data} />
+        </CartProvider>
+    );
 }
-
-export default App;

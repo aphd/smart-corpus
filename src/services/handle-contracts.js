@@ -36,6 +36,7 @@ export const handleContracts = function (query) {
                         v.vrsion.match(version)
                 ),
                 loading: false,
+                total: data.length,
             });
         })
         .catch((err) => console.log("catch:\n", err));
