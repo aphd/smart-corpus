@@ -4,7 +4,7 @@ import { CartContext } from "./cart-context";
 import { metrics } from "../fixtures/metrics";
 import { addToCart } from "../services/handle-cart";
 
-export const MetricItem = (props) => {
+export const ContractItem = (props) => {
     const setCart = useContext(CartContext)[1];
 
     const getURL = (addr) => `https://etherscan.io/address/${addr}#code`;

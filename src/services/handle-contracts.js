@@ -9,7 +9,7 @@ export const options = {
     },
 };
 
-export const handleMetrics = function (query) {
+export const handleContracts = function (query) {
     // TODO to improve code readability/reusability
     // this.query["total_lines"] should be based on check type
     // TODO you need to get the data from the mongodb.

@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import { MetricItem } from "./metric-item";
+import { ContractItem } from "./contract-item";
 import { Cart } from "./cart";
-import { MetricsHeader } from "./metric-header";
+import { ContractHeader } from "./contract-header";
 
-export class MetricList extends Component {
+export class ContractList extends Component {
     constructor(props) {
         super(props);
         this.total = 0;
     }
 
     renderRow = (v, i) => (
-        <MetricItem id={v.contractAddress} key={i} data={v} />
+        <ContractItem id={v.contractAddress} key={i} data={v} />
     );
 
     getRowsData = () => this.props.data.map(this.renderRow);
@@ -27,7 +27,7 @@ export class MetricList extends Component {
                 <table className="table table-hover table-sm table-bordered mt-5">
                     <thead>
                         <Cart total={this.total} />
-                        <MetricsHeader />
+                        <ContractHeader />
                     </thead>
                     <tbody>{this.getRowsData()}</tbody>
                 </table>
