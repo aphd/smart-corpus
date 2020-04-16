@@ -4,7 +4,12 @@ import { ContractHeader } from "./contract-header";
 
 export const ContractList = (props) => {
     const renderRow = (v, i) => (
-        <ContractItem id={v.contractAddress} key={i} data={v} />
+        <ContractItem
+            id={v.contractAddress}
+            key={i}
+            data={v}
+            onClick={props.onClick}
+        />
     );
     const getRowsData = () => props.data.map(renderRow);
 

@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import parse from "html-react-parser";
 import { CartContext } from "./cart-context";
 import { metrics } from "../fixtures/metrics";
-import { addToCart } from "../services/handle-cart";
 
 export const ContractItem = (props) => {
     const setCart = useContext(CartContext)[1];
@@ -25,7 +24,7 @@ export const ContractItem = (props) => {
             <td className="text-right">
                 <input
                     type="checkbox"
-                    onClick={addToCart.bind({ props: props, setCart: setCart })}
+                    onClick={(e) => props.onClick(e, props.id, setCart)}
                 ></input>
             </td>
             {getTDs()}

@@ -1,7 +1,7 @@
-export const addToCart = function (event) {
+export const addToCart = function (event, address, setCart) {
     const checked = !event.target.checked;
-    const contract = { addr: this.props.data.contractAddress };
-    this.setCart((c) =>
-        checked ? c.filter((v) => v.addr !== this.props.id) : [...c, contract]
+    const currentContract = { addr: address };
+    setCart((c) =>
+        checked ? c.filter((v) => v.addr !== address) : [...c, currentContract]
     );
 };

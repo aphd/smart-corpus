@@ -6,12 +6,15 @@ import { ContractList } from "./components/contract-list";
 import { handleContracts } from "./services/handle-contracts";
 import { CartProvider } from "./components/cart-context";
 import { Cart } from "./components/cart";
+import { addToCart } from "./services/handle-cart";
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.handleContract = handleContracts.bind(this);
-        this.state = { loading: false, data: [], total: 0 };
+        // TODO to remove CartProvider
+        this.handleCart = addToCart.bind(this);
+        this.state = { loading: false, data: [], total: 0, cart: [] };
     }
     render = () => (
         <CartProvider>
@@ -25,7 +28,7 @@ export default class App extends Component {
                 loading={this.state.loading}
             />
             <Cart total={this.state.total} />
-            <ContractList data={this.state.data} />
+            <ContractList data={this.state.data} onClick={this.handleCart} />
         </CartProvider>
     );
 }

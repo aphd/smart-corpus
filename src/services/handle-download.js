@@ -18,5 +18,7 @@ const handleClick = function (json) {
 };
 
 export const handleContractsDownload = (cart) => {
-    cart.forEach(downloadFile);
+    console.log(cart);
+    // TODO to change the cart from object to array
+    // cart.forEach(downloadFile);
 };
