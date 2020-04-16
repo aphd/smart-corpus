@@ -1,7 +1,7 @@
-const downloadFile = (contract) =>
-    fetch(getSourceCodeUrl(contract.addr))
+const downloadFile = (addr) =>
+    fetch(getSourceCodeUrl(addr))
         .then((resp) => resp.json())
-        .then(handleClick.bind({ address: contract.addr }));
+        .then(handleClick.bind({ address: addr }));
 
 const getSourceCodeUrl = (address) =>
     `https://api.etherscan.io/api?module=contract&action=getsourcecode&address=${address}&apikey=E5KM3HIGE2PV4RR763IQSXGZIV6UV638P2`;
@@ -17,6 +17,5 @@ const handleClick = function (json) {
     a.remove();
 };
 
-export const handleContractsDownload = (cart) => {
-    cart.forEach(downloadFile);
-};
+export const handleContractsDownload = (addresses) =>
+    addresses.forEach(downloadFile);
