@@ -3,10 +3,9 @@ import React, { Component } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { ContractFinder } from "./components/contract-finder";
 import { ContractList } from "./components/contract-list";
-import { handleContracts } from "./services/handle-contracts";
+import { handleContracts, addToCart } from "./services/handle-contracts";
 import { CartProvider } from "./components/cart-context";
 import { Cart } from "./components/cart";
-import { addToCart } from "./services/handle-cart";
 
 export default class App extends Component {
     constructor(props) {

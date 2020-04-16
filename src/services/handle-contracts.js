@@ -9,6 +9,13 @@ export const options = {
     },
 };
 
+export const addToCart = function (event, address, setCart) {
+    const checked = !event.target.checked;
+    setCart((addrs) =>
+        checked ? addrs.filter((v) => v !== address) : [...addrs, address]
+    );
+};
+
 export const handleContracts = function (query) {
     // TODO to improve code readability/reusability
     // this.query["total_lines"] should be based on check type
