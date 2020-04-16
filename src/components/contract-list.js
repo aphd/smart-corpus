@@ -9,6 +9,7 @@ export const ContractList = (props) => {
             key={i}
             data={v}
             onClick={props.onClick}
+            cart={props.cart}
         />
     );
     const getRowsData = () => props.data.map(renderRow);

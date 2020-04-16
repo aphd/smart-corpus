@@ -20,6 +20,7 @@ export const ContractItem = (props) => {
         <tr key={props.id}>
             <td className="text-right">
                 <input
+                    checked={props.cart.indexOf(props.id) > -1}
                     type="checkbox"
                     onClick={(e) => props.onClick(e, props.id)}
                 ></input>

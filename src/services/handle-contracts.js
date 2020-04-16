@@ -35,6 +35,7 @@ export const handleContracts = function (query) {
                 ),
                 loading: false,
                 total: data.length,
+                cart: [],
             });
         })
         .catch((err) => console.log("catch:\n", err));

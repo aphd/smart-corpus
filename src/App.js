@@ -25,7 +25,11 @@ export default class App extends Component {
                 loading={this.state.loading}
             />
             <Cart total={this.state.total} cart={this.state.cart} />
-            <ContractList data={this.state.data} onClick={this.handleCart} />
+            <ContractList
+                data={this.state.data}
+                onClick={this.handleCart}
+                cart={this.state.cart}
+            />
         </React.Fragment>
     );
 }
