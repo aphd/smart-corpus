@@ -3,7 +3,7 @@ import { Formik, Field, Form } from "formik";
 import { TextField } from "@material-ui/core";
 import { options } from "../services/handle-metrics";
 
-export const CueForm = (props) => {
+export const ContractFinder = (props) => {
     return (
         <Formik
             initialValues={{ Type: "Any", CV: "Any" }}
