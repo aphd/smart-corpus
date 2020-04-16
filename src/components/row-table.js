@@ -2,16 +2,10 @@ import React, { useContext } from "react";
 import parse from "html-react-parser";
 import { CartContext } from "./cart-context";
 import { metrics } from "../fixtures/metrics";
+import { addToCart } from "../services/handle-cart";
 
 export const RowTable = (props) => {
     const setCart = useContext(CartContext)[1];
-    const addToCart = (e) => {
-        const checked = !e.target.checked;
-        const contract = { id: props.id, addr: props.data.contractAddress };
-        setCart((c) =>
-            checked ? c.filter((v) => v.addr !== props.id) : [...c, contract]
-        );
-    };
 
     const getURL = (addr) => `https://etherscan.io/address/${addr}#code`;
 
@@ -29,7 +23,10 @@ export const RowTable = (props) => {
     return (
         <tr key={props.id}>
             <td className="text-right">
-                <input type="checkbox" onChange={addToCart}></input>
+                <input
+                    type="checkbox"
+                    onClick={addToCart.bind({ props: props, setCart: setCart })}
+                ></input>
             </td>
             {getTDs()}
         </tr>

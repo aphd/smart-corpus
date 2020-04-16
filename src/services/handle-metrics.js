@@ -26,7 +26,6 @@ export const handleMetrics = function (query) {
     return fetch(metricsUrl)
         .then((res) => res.json())
         .then((data) => {
-            window.data = data;
             this.setState({
                 data: data.filter(
                     (v) =>

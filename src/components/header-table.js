@@ -1,7 +1,7 @@
 import React from "react";
 import { metrics } from "../fixtures/metrics";
 
-export const HeaderTable = (props) => {
+export const HeaderTable = () => {
     const getMetrics = () => Object.values(metrics);
 
     const getTh = (v, i) => <th key={i}>{v}</th>;
@@ -10,7 +10,8 @@ export const HeaderTable = (props) => {
 
     return (
         <tr>
-            <td> </td> {getHeader()}
+            <td></td>
+            {getHeader()}
         </tr>
     );
 };

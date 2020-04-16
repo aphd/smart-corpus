@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CartContext } from "./cart-context";
-import { handleContractsDownload } from "../services/handle-contracs-download";
+import { handleContractsDownload } from "../services/handle-download";
 
 export const Cart = (props) => {
     const [cart] = useContext(CartContext);
