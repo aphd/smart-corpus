@@ -6,17 +6,19 @@ export const Cart = (props) => {
     const hide = cart.length ? "" : "d-none";
     const no_hide = cart.length ? "d-none" : "";
     return (
-        props.total > 0 && (
+        props.nFound > 0 && (
             <div className="mt-3 mb-1">
-                <button type="button" className={`btn btn-info ${no_hide}`}>
+                <div className={`alert alert-primary ${no_hide}`} role="alert">
                     Select the checkboxes to download the smart contracts -
-                    Total number of contracts:{" "}
-                    <span className="badge badge-light">{props.total}</span>
-                </button>
+                    Smart contracts found:{" "}
+                    <span className="badge badge-light">
+                        {props.nFound} / 11251
+                    </span>
+                </div>
                 <button
                     onClick={() => handleContractsDownload(cart)}
                     type="button"
-                    className={`btn btn-info ${hide}`}
+                    className={`btn btn-danger ${hide}`}
                 >
                     Download{" "}
                     <span className="badge badge-light">{cart.length}</span>{" "}
