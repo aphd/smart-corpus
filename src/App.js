@@ -11,7 +11,7 @@ export default class App extends Component {
         super(props);
         this.handleContract = handleContracts.bind(this);
         this.handleCart = addToCart.bind(this);
-        this.state = { loading: false, data: [], total: 0, cart: [] };
+        this.state = { loading: false, data: [], nFound: 0, cart: [] };
     }
     render = () => (
         <React.Fragment>
@@ -24,7 +24,7 @@ export default class App extends Component {
                 onSubmit={this.handleContract}
                 loading={this.state.loading}
             />
-            <Cart total={this.state.total} cart={this.state.cart} />
+            <Cart nFound={this.state.nFound} cart={this.state.cart} />
             <ContractList
                 data={this.state.data}
                 onClick={this.handleCart}
