@@ -21,7 +21,7 @@ export const addToCart = function (event, address) {
 export const handleContracts = function (conditions) {
     let metricsUrl =
         "https://raw.githubusercontent.com/aphd/smac-corpus-api/master/data/metrics.json";
-    metricsUrl = "./metrics.json";
+    // metricsUrl = "./metrics.json";
     this.setState({ loading: true });
     return fetch(metricsUrl)
         .then((res) => res.json())
