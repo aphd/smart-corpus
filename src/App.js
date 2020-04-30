@@ -5,6 +5,7 @@ import { ContractFinder } from "./components/contract-finder";
 import { ContractList } from "./components/contract-list";
 import { handleContracts, addToCart } from "./services/handle-contracts";
 import { Cart } from "./components/cart";
+import ReactGA from "react-ga";
 
 export default class App extends Component {
     constructor(props) {
@@ -12,7 +13,10 @@ export default class App extends Component {
         this.handleContract = handleContracts.bind(this);
         this.handleCart = addToCart.bind(this);
         this.state = { loading: false, data: [], nFound: 0, cart: [] };
+        ReactGA.initialize("UA-155858412-3");
+        ReactGA.pageview(window.location.pathname);
     }
+
     render = () => (
         <React.Fragment>
             <HelmetProvider>
