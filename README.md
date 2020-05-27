@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Introduction
+
+The tool is available to this [link - smac-corpus](https://aphd.github.io/smac-corpus/)
+
+<img width="100%" alt="Screenshot 2020-05-27 at 11 25 48" src="https://user-images.githubusercontent.com/1194257/83002188-09f08c80-a00d-11ea-8376-3c46614f7262.png">
+
+
 ## Available Scripts
 
 In the project directory, you can run:
