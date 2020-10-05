@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 The tool is available to this [link - smac-corpus](https://aphd.github.io/smac-corpus/)
 
-<img width="100%" alt="Screenshot 2020-05-27 at 11 25 48" src=https://user-images.githubusercontent.com/1194257/95049628-67e35e00-06ea-11eb-8477-0a2b1a2e43a8.png">
+<img width="100%" alt="Screenshot 2020-05-27 at 11 25 48" src="https://user-images.githubusercontent.com/1194257/95049628-67e35e00-06ea-11eb-8477-0a2b1a2e43a8.png">
 
 
 
