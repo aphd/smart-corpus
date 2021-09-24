@@ -15,5 +15,11 @@
         "**/npm-debug.log*": true,
         "**/yarn-debug.log*": true,
         "**/yarn-error.log*": true
+    },
+    "workbench.colorCustomizations": {
+        "tab.activeBackground": "#030f04",
+        "activityBar.background": "#5F0525",
+        "titleBar.activeBackground": "#850733",
+        "titleBar.activeForeground": "#FFFBFD"
     }
 }
