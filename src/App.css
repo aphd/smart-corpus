@@ -5,3 +5,8 @@ body {
     margin-right: 20px;
     width: 200px;
 }
+
+.btn-download {
+    display: flex;
+    gap: 15px;
+}

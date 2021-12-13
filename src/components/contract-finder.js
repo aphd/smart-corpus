@@ -6,7 +6,7 @@ import { options } from "../services/handle-contracts";
 export const ContractFinder = (props) => {
     return (
         <Formik
-            initialValues={{ Type: "Any", CV: "Any" }}
+            initialValues={{ Type: 'Any', CV: 'Any' }}
             onSubmit={(data) => props.onSubmit(data)}
         >
             {({ values, errors, isSubmitting }) => (
@@ -84,7 +84,7 @@ export const ContractFinder = (props) => {
                     >
                         <span
                             className={`spinner-border spinner-border-sm ${
-                                props.loading ? "mr-2" : "d-none"
+                                props.loading ? 'mr-2' : 'd-none'
                             }`}
                         ></span>
                         Submit

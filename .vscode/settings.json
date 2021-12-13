@@ -15,5 +15,16 @@
         "**/npm-debug.log*": true,
         "**/yarn-debug.log*": true,
         "**/yarn-error.log*": true
+    },
+    "prettier": {
+        "printWidth": 120,
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 4,
+    },
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#5F0525",
+        "titleBar.activeBackground": "#850733",
+        "titleBar.activeForeground": "#FFFBFD"
     }
 }
