@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,KACI,WACJ,CACA,mBACI,iBAAkB,CAClB,WACJ,CAEA,cACI,YAAa,CACb,aAAS,CAAT,QACJ","file":"main.f6ebc3c5.chunk.css","sourcesContent":["body {\n    margin: 20px;\n}\n.MuiInputBase-root {\n    margin-right: 20px;\n    width: 200px;\n}\n\n.btn-download {\n    display: flex;\n    gap: 15px;\n}\n"]}

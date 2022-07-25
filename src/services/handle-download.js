@@ -17,5 +17,4 @@ const handleClick = function (json) {
     a.remove();
 };
 
-export const handleContractsDownload = (addresses) =>
-    addresses.forEach(downloadFile);
+export const handleContractsDownload = (addresses) => addresses.forEach(downloadFile);

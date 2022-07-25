@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+#R
+.RData
+.Rhistory
+
 # testing
 /coverage
 
